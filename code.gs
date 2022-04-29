@@ -15,10 +15,8 @@ function getWebcam() {
   var folder = DriveApp.getFolderById("1XyO7DUh6Ty1mt27ernO0G7vtXxWQwmOQ")
   
   //check if folder exists
-  var folderName = dString
-  
   // Log the name of every folder in the user's Drive that you own and is starred.
-  var folders = DriveApp.getFoldersByName(folderName)
+  var folders = DriveApp.getFoldersByName(dString)
 
   if(folders.hasNext() == false){
     folder = folder.createFolder(dString)
