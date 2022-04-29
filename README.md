@@ -21,18 +21,14 @@ function getWebcam() {
   var folder = DriveApp.getFolderById("1XyO7DUh6Ty1mt27ernO0G7vtXxWQwmOQ")
   
   //check if folder exists
-  var folderName = dString
-  
   // Log the name of every folder in the user's Drive that you own and is starred.
-  var folders = DriveApp.getFoldersByName(folderName)
-  //Logger.log(folder)
+  var folders = DriveApp.getFoldersByName(dString)
 
   if(folders.hasNext() == false){
     folder = folder.createFolder(dString)
     return folder.createFile(response)
   }else{
     folder = folders.next()
-    //Logger.log(folder)
     return folder.createFile(response)
   }
 }
@@ -55,8 +51,6 @@ function cleanDrive() {
     var folders = folderNames.next()
     var fNdate = new Date(folders)
     var dSdate = new Date(dateString)
-    //Logger.log(dateString)
-    //Logger.log(dSdate)
 
     if(folders < dateString){
       folders.setTrashed(true)
